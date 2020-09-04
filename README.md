@@ -43,6 +43,9 @@ At line 17, 18 and 28, modify "compare_result" to directory name that you want t
 ```
 After execute compare.py, Image files will be saved in directory("compare_reulst") corresponding to txt files.
 
+## 3. mergy.py
+
+
 ## 4. listing.py
 Now, make listing file. This is needed for darknet train
 
