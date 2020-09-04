@@ -44,6 +44,8 @@ At line 17, 18 and 28, modify "compare_result" to directory name that you want t
 After execute compare.py, Image files will be saved in directory("compare_reulst") corresponding to txt files.
 
 ## 3. mergy.py
+Through the above two processes, an image, label file for a class can be obtained.
+Now, put these together.
 
 
 ## 4. listing.py
