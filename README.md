@@ -3,7 +3,9 @@ python3 code for parse COCO dataset to yolov3 format
 
 ## 1. cocotoyoloconverter.py
 Download instances_train2017.json from the COCO website and put in the same directory as this script.   
-In line 16, you should modify "car" to class that you want to extract like below.   
+At line 16, "car" to class that you want to extract like below.    
+Class should be included in one of the 80 classes in coco names.
+
 ```(python3)
 16 cat = "car"   
 17 catIds = coco.getCatIds(catNms=[cat])
@@ -11,7 +13,7 @@ In line 16, you should modify "car" to class that you want to extract like below
 19 images = coco.loadImgs(imgIds)
 ```
 
-In line 32, you should modify "car_labels/" to directory name that you want to save result txt files.
+At line 32, modify "car_labels/" to directory name that you want to save result txt files.
 ```(python3)
 32    with open("car_labels/" + filename, "a") as myfile:
 33        for i in range(len(anns)):
@@ -20,12 +22,29 @@ In line 32, you should modify "car_labels/" to directory name that you want to s
 36            xmax = anns[i]["bbox"][2] + anns[i]["bbox"][0]
 37            ymax = anns[i]["bbox"][3] + anns[i]["bbox"][1]
 ```
-
-After execute cocotoyoloconverter.py, A text file can be obtained for image files corresponding to class you enter at line 16.
+After execute cocotoyoloconverter.py, text files will be saved in directory corresponding to class("car") you enter at line 16.
 
 ## 2. compare.py
+Now, Save image files corresponding to txt files in directory that you entered at line 32 in cocotoyoloconverter.py.
+At line 7, modify "person_lables" to directory name that you entered at line 32 in cocotoyoloconverter.py
+```(python3)
+6 path_0 = os.getcwd() + "/"
+7 path_label = path_0 + "person_labels"
+8 path_train = path_0 + "train2017"
+```
 
-## 3. merge.py
+At line 17, 18 and 28, modify "compare_result" to directory name that you want to save corresponding images. 
+```(python3)
+16 try:
+17 	if not os.path.exists(path_0 + "compare_result"):
+18 	       os.makedirs(path_0 + "compare_result")
+19 except OSError:
+20     print('Error: Creating directory of data')
+```
+After execute compare.py, Image files will be saved in directory("compare_reulst") corresponding to txt files.
 
 ## 4. listing.py
+Now, make listing file. This is needed for darknet train
+
+f = open(path + "label_list.txt",'a')
 
