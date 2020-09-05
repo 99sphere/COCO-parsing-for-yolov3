@@ -44,14 +44,17 @@ At line 17, 18 and 28, modify "compare_result" to directory name that you want t
 After execute compare.py, Image files will be saved in directory("compare_reulst") corresponding to txt files.
 
 ## 3. mergy.py
-Through the above two processes, an image, label file for a class can be obtained.
+Through the above two processes, an image, label file for a class can be obtained.   
 Now, put these together.
 
 
 ## 4. listing.py
-Now, make listing file. This is needed for darknet train.
-At line 04, modify "/03_eunbin" to your directory name.
+Now, make listing file. This is needed for darknet train.   
+At line 04, modify "/03_eunbin" to your directory name.   
 ```(python3)
 04 path = os.getcwd() + "/03_eunbin"
 ```
-When executed, the path corresponding to the jpg files in that folder is saved in the form of train.txt used for yolo training.
+When executed, the path corresponding to the jpg files in that folder is saved in the form of train.txt used for yolo training.   
+
+## 5. result_listing.py
+After putting the text files created in the above process into a folder named "listing", You can get the train.txt file by running result_listing.py.
