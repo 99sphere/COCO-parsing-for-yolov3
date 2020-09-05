@@ -49,7 +49,9 @@ Now, put these together.
 
 
 ## 4. listing.py
-Now, make listing file. This is needed for darknet train
-
-f = open(path + "label_list.txt",'a')
-
+Now, make listing file. This is needed for darknet train.
+At line 04, modify "/03_eunbin" to your directory name.
+```(python3)
+04 path = os.getcwd() + "/03_eunbin"
+```
+When executed, the path corresponding to the jpg files in that folder is saved in the form of train.txt used for yolo training.
